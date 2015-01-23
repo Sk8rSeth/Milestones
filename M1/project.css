@@ -1,0 +1,24 @@
+body {
+	background-image: url(swirl_pattern.png);
+}
+.content-box {
+	background-color: white;
+	border: 1px solid #555;
+	padding: 12px;
+	border-right: none;
+	border-left: none;
+}
+nav {
+	background-color: #555;
+	padding: 5px;
+}
+nav a {
+	color:white;
+}
+span {
+	color:white;
+}
+body > a {
+	display:block;
+}
+

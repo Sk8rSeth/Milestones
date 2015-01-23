@@ -1,0 +1,55 @@
+a{
+	text-decoration:none;
+}
+body {
+	background-image: url('background.jpg');
+	font-family : lato;
+	background-size: cover;
+}
+main span {
+	font-family: sans-serif;
+}
+
+.main-content-box {
+	background-color: white;
+	border-right: none;
+	border-left: none;
+}
+.main-footer {
+	color:white;
+	padding:5px;
+}
+main h1, main span > a {
+	color: #3b9a2a;
+	font-weight:200;
+}
+main > div {
+
+}
+main {
+	background-color: rgba(255,255,255,0.75);
+	margin:10px;
+	border-radius:5px;
+	padding:10px;
+}
+
+nav {
+	background-color: #555;
+	padding: 5px;
+}
+nav a {
+	color:white;
+	margin:5px;
+}
+nav span {
+	color:white;
+}
+body > a {
+	
+}
+header div {
+	font-family: Lobster;
+	font-size: 36px;
+	color: #555;
+	padding:5px;
+}
