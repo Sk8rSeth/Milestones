@@ -19,6 +19,9 @@ main span {
 	color:white;
 	padding:5px;
 }
+.main-content-box div > a{
+	color: #555;
+}
 main h1, main span > a {
 	color: #3b9a2a;
 	font-weight:200;

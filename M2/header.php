@@ -1,5 +1,5 @@
 <header class="main-content-box">
-		<div>Business Site</div>
+		<div><a href="index.php">Business Site</a></div>
  	<nav>
  		<a href="index.php">Home</a> <span> | </span>
  		<a href="contact.php">Contact</a> <span> | </span>

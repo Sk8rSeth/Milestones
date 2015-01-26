@@ -1,12 +1,15 @@
 <?php
-include_once("Arrays.php");
+require_once("Arrays.php");
 
-if ($_GET['quantity'] > 7) {
-	if ($urlID == 2) {
-		$msg = "You Can't Choose more than 7 Macs";
-	}
-}
-
+if (isset($_GET['pID'])) {
+	if (isset($_GET['quantity'])) {
+		if ($_GET['quantity'] > 7) {
+			if ($urlID == 2) {
+				$msg = "You Can't Choose more than 7 Macs";
+			} 
+		}
+	} 
+} 
 
 ?>
 

@@ -1,5 +1,5 @@
 <?php
-include_once("Arrays.php");
+require_once("Arrays.php");
 
 ?>
 
@@ -25,8 +25,8 @@ include_once("Arrays.php");
 					<?php echo $opts; ?>
 				</select>
 				<span>Quantity:</span>
-				<input type="number" min="1"; name="quantity" required>
-				<button>Add To Cart</button>
+				<input type="number" min="0"; name="quantity" required>
+				<button type="submit">Add To Cart</button>
 			</form>
 		</main>
 
