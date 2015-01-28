@@ -1,17 +1,25 @@
 <?php
 require_once("Arrays.php");
 
-if (isset($_GET['pID'])) {
-	if (isset($_GET['quantity'])) {
-		if ($_GET['quantity'] > 7) {
-			if ($urlID == 2) {
-				$msg = "You Can't Choose more than 7 Macs";
-			} 
-		}
-	} 
-} 
+//variable declarations
+$msg = "Please Choose A Valid Product";
+$urlID = $_GET['pID'];
+$quan = $_GET['quantity'];
+
+// --LOGIC-- if the key exists, set $msg different, and choose less than 7 macs
+if (array_key_exists($urlID, $choices)) {
+	if ($quan > 0) {
+		$msg = "You Chose " . $quan . " " . $choices[$urlID] . " Device(s)!";	
+	}
+	if ($quan > 7) {
+		if ($urlID == 1) {
+			$msg = "You Can't Choose more than 7 Macs";
+		} 
+	}
+}
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

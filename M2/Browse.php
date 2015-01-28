@@ -1,7 +1,15 @@
 <?php
+
 require_once("Arrays.php");
 
+//declare variable and dropdown options
+$opts = '';
+foreach ($choices as $pID => $pName) {
+	$opts .= "<option value=\"$pID\">$pName</option>";
+}
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +33,7 @@ require_once("Arrays.php");
 					<?php echo $opts; ?>
 				</select>
 				<span>Quantity:</span>
-				<input type="number" min="0"; name="quantity" required>
+				<input type="number" min="1" name="quantity" required>
 				<button type="submit">Add To Cart</button>
 			</form>
 		</main>

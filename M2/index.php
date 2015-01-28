@@ -7,7 +7,6 @@
 		<meta charset="UTF-8">
 		<title>Project M2</title>
 	</head>
-
 	<body>
 
 		<?php include('header.php'); ?>
