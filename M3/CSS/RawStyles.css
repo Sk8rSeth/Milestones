@@ -1,6 +1,5 @@
 a {
 	color:white;
-	text-decoration: none;
 }
 
 /*################################################
@@ -8,18 +7,18 @@ a {
 ################################################*/
 
 .hero {
+	background-color: #00ABB9;
 	min-height: 400px;
-	font-family: lato;
+	font-family: Lato;
 	color: white;
-	background: -webkit-radial-gradient(center, ellipse cover, rgba(30,87,153,0.6) 0%,rgba(0,171,185,0.8) 100%), url('/CSS/Images/bg.jpg');
-	
 }
 
-header {
+.header-container {
+	background-color: orange;
 	height: 150px;
 	width: 960px;
-	margin: 0 auto;
 	text-align: center;
+	margin: 0 auto;
 	position: relative;
 }
 
@@ -27,50 +26,37 @@ header {
 	position: absolute;
 	top: 10px;
 	left: 10px;
-	font-family: Lobster;
-	font-size: 48px;
+	background-color: red;
 }
 
 .searchbar {
 	position: absolute;
 	top: 20px;
 	right: 0;
-} 
-
-.searchbar input {
-	background-color: rgba(0,0,0,0);
-	border: 1px solid #ddd; 
-	padding: 5px;
+	background-color: blue;
 }
 
-.searchbar button {
-	background-color: #F54B1B;
-	border: 1px solid #F54B1B;
-	border-radius: 5px;
-}
-
-nav {
+.navbar {
 	position: absolute;
 	bottom: 0;
 	right: 0;
 	left: 0;
-	border-top: 1px solid white;
-	border-bottom: 1px solid white;
+	background-color: green;
 }
 
-nav > a {
+.navbar span {
 	display: inline-block;
-	padding: 15px;
-	text-transform: uppercase;
-
+	padding: 20px;
 }
 
 .blankspace {
+	background-color: lightblue;
 	height: 500px;
 	width: 960px;
 	text-align: center;
 	margin: 0 auto;
 	position: relative;
+	letter-spacing: 1px;
 }
 
 .blankspace div {
@@ -78,6 +64,7 @@ nav > a {
 	bottom: 30px;
 	right: 0;
 	left: 0;
+	background-color: magenta;
 	height: 100px;
 	padding: 10px;
 }
@@ -86,103 +73,71 @@ nav > a {
 	margin-top: 0;
 }
 
-.blankspace h1 > span {
+.blankspace h1 span {
 	font-weight: 300;
 }
+
 
 /*################################################
 #					Main Area					#
 ################################################*/
 
-main {
-	background-color: #D6E1E7;
+.content {
+	background-color: purple;
 	min-height: 500px;
-	font-family: lato;
+	font-family: Lato;
 }
 
-.breakouts {
+.triple-container {
+	background-color: green;
 	width: 960px;
 	min-height: 40px;
 	text-align: center;
 	margin: 0 auto;
 }
 
-.breakouts div {
-	background-color: #fff;
-	height: 170px;
+.triple-container div {
+	background-color: lime;
+	height: 150px;
 	width: 290px;
+	text-align: center;
 	display: inline-block;
 	margin: 0 auto;
 	margin-left: 10px;
 	margin-right: 10px;
 	transform: translatey(-20px);
 	position: relative;
-	box-shadow: 0 0 5px 0 #999;
 }
-
-.breakouts div:nth-child(1) {
-	border-top: 4px solid #F54B1B;
-}
-
-.breakouts div:nth-child(1) button {
-	border: 2px solid #F54B1B;
-	background-color: #fff;
-	color: #F54B1B;
-	border-radius: 5px;
-}
-
-.breakouts div:nth-child(2) {
-	border-top: 4px solid #82D154;	
-}
-
-.breakouts div:nth-child(2) button {
-	border: 2px solid #82D154;
-	background-color: #fff;
-	color: #82D154;
-	border-radius: 5px;
-}
-
-.breakouts div:nth-child(3) {
-	border-top: 4px solid #0092D0;
-}
-
-.breakouts div:nth-child(3) button {
-	border: 2px solid #0092D0;
-	background-color: #fff;
-	color: #0092D0;
-	border-radius: 5px;
-}
-
 
 /*################################################
 #				Left Side Section				#
 ################################################*/
 
-.main-content {
-	background-color: #fff;
+
+.left-side {
+	background-color: gray;
 	width: 960px;
 	text-align: center;
 	margin: 0 auto;
 	position: relative;
-	min-height: 500px;
+	min-height: 500px
 	overflow: hidden;
-	box-shadow: 0 0 5px 0 #999;
 }
 
-aside {
-	background-color: #fff;
+.aside {
+	background-color: lime;
 	float: left;
 	min-height: 400px;
 	width: 400px;
 }
 
-.media-object {
-	background-color: #E7F3F9;
+.media-object-container {
+	background-color: red;
 	overflow: hidden;
 	margin: 10px;
 }
 
-.media-object img {
+.image > img {
 	width: 70px;
 	height: 70px;
 	background-color: blue;
@@ -190,14 +145,12 @@ aside {
 }
 
 .comment {
-	padding: 5px;
-	margin-left: 80px;
+	background-color: yellow;
 	text-align: left;
 }
 
 .comment :first-child {
-	font-size: 20px;
-	color: #0092D0;
+	font-weight: 700;
 }
 
 /*################################################
@@ -205,16 +158,16 @@ aside {
 ################################################*/
 
 .gallery {
-	background-color: #fff;
+	background-color: blue;
 	margin-left: 400px;
 	min-height: 600px;
 }
-
 .tile {
 	display: inline-block;
 	margin: 10px;
 	width: 150px;
-	background-color: rgba(130,209,84,0.25);
+	padding: 0;
+	background-color: yellow;
 	text-align: left;
 	vertical-align: top;
 }
@@ -223,8 +176,7 @@ aside {
 	width: 150px;
 	height: 150px;
 }
-
 .tile div {
-	background-color: #82D154; 
-	padding-left: 5px;
+	border-bottom: 1px solid #333; 
+	font-weight: 700;
 }
