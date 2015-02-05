@@ -2,6 +2,10 @@
 require_once('ValidatorFactory.php');
 class Validator extends ValidatorFactory {
 	protected $regex = '';
+
+	// private function __construct() {}
+
+
 	public function isRequired($value){
 		if (strlen($value) > 0) {
 			return true;

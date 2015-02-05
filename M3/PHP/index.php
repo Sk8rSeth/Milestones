@@ -9,7 +9,7 @@ $fields = [
 	[
 		'name' => 'Email1', 
 		'type' => 'email',
-		'error' => '',
+		'error' => "Being Sure To Use '@' Symbol.",
 		'isValid' => '',
 		'value' => '',
 		'label' => 'Email',
@@ -18,7 +18,7 @@ $fields = [
 	[
 		'name' => 'Name1', 
 		'type' => 'name',
-		'error' => '',
+		'error' => "Making Sure There Are No Numbers.",
 		'isValid' => '',
 		'value' => '',
 		'label' => 'Name',
@@ -27,7 +27,7 @@ $fields = [
 	[
 		'name' => 'Pass1', 
 		'type' => 'password',
-		'error' => '',
+		'error' => "Having between 3 and 20 Characters In Your Password.",
 		'isValid' => '',
 		'value' => '',
 		'label' => 'Password',
@@ -35,7 +35,7 @@ $fields = [
 	[
 		'name' => 'Phone1', 
 		'type' => 'phone',
-		'error' => '',
+		'error' => "Using This Format- '000-000-0000'.",
 		'isValid' => '',
 		'value' => '',
 		'label' => 'Phone #',
@@ -75,18 +75,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				if ($fieldAttributes['isValid'] == 1){
 					$msg = "Valid";
 					$cssTrue = 'valid';
+					$validInput = 'validInput';
 				} elseif ($fieldAttributes['isValid'] == 0){
-					$msg = "Invalid Entry";
+					$msg = "Invalid Entry: " . "(" . $fieldAttributes['value'] . "). Try " . $fieldAttributes['error'];
 					$cssTrue = 'invalid';
+					$validInput = 'invalidInput';
 				} else {
 					$msg = "Unknown Error";
 				}
 			} else {
 				$msg = $fieldAttributes['label'] . " Is A Required Field";
 				$cssTrue = 'invalid';
+				$validInput = 'invalidInput';
 			}
 		}
-		$html = $fieldAttributes['label'] . ': <input type="text" name="' . $fieldAttributes['name'] . 
+		$html = $fieldAttributes['label'] . ": <input type=\"text\" name=\"" . $fieldAttributes['name'] . 
 				'" ' . 'value="' . $fieldAttributes['value'] . '">' . "<span class=\"$cssTrue\"> " .  $msg . " </span>";
 		$html_inputs[] = $html;
 	}
@@ -96,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //===================================================
 
 } else {
-	$welcomeMsg = "Welcome! Please FIll The Form.";
+	$welcomeMsg = "Welcome! Please Out Fill The Form.";
 	foreach ($fields as $fieldAttributes) {
 		$html = $fieldAttributes['label'] . ': <input type="text" name="' . $fieldAttributes['name'] . '">';
 		$html_inputs[] = $html;
@@ -104,6 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,9 +117,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		.valid {
 			color: #fff;
 			background-color: green;
-			border: 1px dashed green;
+			border: 1px solid green;
 		}
-
 		.invalid {
 			color: #fff;
 			background-color: red;
@@ -124,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</style>
 </head>
 <body>
-
+	<h1>Seth's Super Duper, Better Than The Best Validator Tester</h1>
 	<?php echo $welcomeMsg, '<br>'; ?>
 
 	<form action="" method="POST">
@@ -134,3 +137,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+
