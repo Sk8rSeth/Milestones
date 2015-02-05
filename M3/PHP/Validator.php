@@ -1,8 +1,14 @@
 <?php
 require_once('ValidatorFactory.php');
-
 class Validator extends ValidatorFactory {
 	protected $regex = '';
+	public function isRequired($value){
+		if (strlen($value) > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	public function isValid($input) {
 		if (strlen($this->regex) == 0) {
 			throw new Exception('called validator instead of subclass');
@@ -13,30 +19,4 @@ class Validator extends ValidatorFactory {
 			return '0';
 		}
 	}
-
-
 }
-
-class EmailValidator extends Validator {
-	protected $regex = '/[a-zA-Z0-9]+/';
-}
-
-class PhoneValidator extends Validator {
-	protected $regex = '/\d{3}[\-]\d{3}[\-]\d{4}/';
-
-}
-
-class PasswordValidator extends Validator {
-	protected $regex = '/[a-zA-Z0-9]+/';
-
-}
-
-class NameValidator extends Validator {
-	protected $regex = '/[a-zA-Z0-9]+/';
-
-}
-
-// class NumberValidator extends Validator {
-// 	protected $regex = '/^\d+$/';
-
-// }

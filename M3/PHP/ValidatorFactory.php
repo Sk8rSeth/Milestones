@@ -15,3 +15,17 @@ class ValidatorFactory {
 		}
 	}
 }
+
+// switch ($type) {
+// 	case: 'email':
+// 		return new EmailValidator();
+// 		break;
+// 	case: 'phone':
+
+// 	case: ''
+
+
+
+// 	default: ''
+// 		sdgs
+// }

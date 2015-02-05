@@ -11,7 +11,7 @@ a {
 	min-height: 400px;
 	font-family: lato;
 	color: white;
-	background: -webkit-radial-gradient(center, ellipse cover, rgba(30,87,153,0.6) 0%,rgba(0,171,185,0.8) 100%), url('/CSS/Images/bg.jpg');
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(30,87,153,0.4) 0%,rgba(0,171,185,0.7) 100%), url('/CSS/Images/bg.jpg');
 	
 }
 
@@ -54,8 +54,8 @@ nav {
 	bottom: 0;
 	right: 0;
 	left: 0;
-	border-top: 1px solid white;
-	border-bottom: 1px solid white;
+	border-top: 1px solid rgba(255,255,255,0.7);
+	border-bottom: 1px solid rgba(255,255,255,0.7);
 }
 
 nav > a {
@@ -222,6 +222,7 @@ aside {
 .tile > img {
 	width: 150px;
 	height: 150px;
+	display: block;
 }
 
 .tile div {
