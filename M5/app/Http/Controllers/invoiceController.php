@@ -1,8 +1,12 @@
 <?php namespace App\Http\Controllers;
 use DB;
-use App\Models\invoiceModel;
+use Request;
 
 class invoiceController extends Controller {
+
+// ===================================================================================
+//======================= Select All ==================================
+// ===================================================================================
 
 	public function all()
 	{
@@ -23,22 +27,65 @@ class invoiceController extends Controller {
 		return view('allInvoices', ['results' => $results]);
 	}
 
+// ===================================================================================
+//====================== Add New Invoice ==================================
+// ===================================================================================
+	
 	public function addNew($id) {
-		DB::select(
-			"INSERT INTO invoice (`customer_id`)
-			VALUES (:customer_id)",
-			array(
-				':customer_id' => $id
-			)
+		$sql_values = [':customer_id'=>$id];
+		DB::insert(
+			"INSERT INTO invoice (`customer_id`, `created_at`)
+			VALUES (:customer_id, NOW())",
+			$sql_values
 		);
-		$newID = DB::getPdo()->lastInsertId();﻿
+		$lastID = DB::getPdo()->lastInsertId();
 
-		return redirect("invoices/details/$newID");
+		return redirect("invoices/details/" . $lastID);
 	}
 
-	public function add() {
+// ===================================================================================
+//===================== Add ==================================
+// ===================================================================================
 
+	public function add($invoice_id) {
+		$quantity = Request::input('quantity');
+		$item_id = Request::input('item_id');
+
+		$initSelect = DB::select('SELECT * 
+			FROM invoice_item
+			WHERE item_id = :item_id
+			AND invoice_id = :invoice_id',
+			array(
+				':item_id' => $item_id,
+				':invoice_id' => $invoice_id));
+
+		if ($initSelect) {
+			$previousQTY = $initSelect[0]->quantity;
+			$sql = DB::update( "UPDATE invoice_item  
+					SET quantity= :quantity
+					WHERE item_id = :item_id
+					AND invoice_id = :invoice_id",
+				array(
+					':item_id' => $item_id,
+					':invoice_id' => $invoice_id,
+					':quantity' => ($quantity + $previousQTY)));
+		} else {
+			echo 'insert new . . . . ';
+			$sql = DB::insert(
+					'INSERT INTO invoice_item ( `invoice_id`, `item_id`, `quantity`) 
+					VALUES ( :invoice_id, :item_id, :quantity)',
+				array(
+					':invoice_id' => $invoice_id,
+					':item_id' => $item_id,
+					':quantity' => $quantity));
+		}
+
+		return redirect('invoices/details/' . $invoice_id);
 	}
+
+// ===================================================================================
+//=========================== View Details ==================================
+// ===================================================================================
 
 	public function viewDetails($invoice_id) {
 		$results = DB::select(
@@ -50,21 +97,20 @@ class invoiceController extends Controller {
 				":invoice_id" => $invoice_id
 				)
 			);
+		$list = DB::select("SELECT * FROM item");
 
-		return view('invoiceDetails', ['results' => $results]);
+		return view('invoiceDetails', ['results' => $results, 'invoice_id' => $invoice_id, 'list'=>$list]);
 	}
 
-	public function edit($id) {
+// ===================================================================================
+//======================== Delete ==================================
+// ===================================================================================
 
-	}
-
-	public function delete($id) {
+	public function delete($invoice_id, $id) {
 		DB::select(
-			"DELETE FROM invoice WHERE id = :id",
-			array(":id"=>$id)
-			);
-
-		return redirect('invoices/all');
+			"DELETE FROM invoice_item
+			WHERE invoice_item.item_id = :id",
+			array(":id" => $id));
+		return redirect('invoices/details/' . $invoice_id);
 	}
-
 }

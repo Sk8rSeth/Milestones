@@ -47,7 +47,7 @@ class Invoice {
 			array(":invoice_id" => $invoice_id)
 		);
 
-		return view('invoiceDetails', ['results' => $results]);
+		return view('invoiceDetails', ['results' => $results, 'invoice_id' => $invoice_id]);
 	}
 
 	public function edit($id) {

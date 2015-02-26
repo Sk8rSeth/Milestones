@@ -1,6 +1,5 @@
-<?php 
+<?php namespace App\Models;
 
-namespace App\Models;
 use DB;
 
 class Customer  {

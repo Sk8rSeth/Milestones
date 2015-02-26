@@ -1,10 +1,14 @@
 <?php namespace App\Http\Controllers;
+// use App\Models\customerModel;
 use DB;
+
+
 class customerController extends Controller {
 
 	public function all()
 	{
 		$results = DB::select('select * from customer');
+
 
 		return view('allCustomers', ['results' => $results]);
 	}
@@ -14,7 +18,7 @@ class customerController extends Controller {
 	}
 
 	public function add($first_name, $last_name, $email, $gender) {
-		DB::select(
+		DB::insert(
 			"INSERT INTO customer (`first_name`, `last_name`, `email`, `gender`) 
 				VALUES(:first_name, :last_name, :email, :gender)",
 			array(
@@ -29,7 +33,7 @@ class customerController extends Controller {
 	}
 
 	public function delete($id) {
-		DB::select(
+		DB::delete(
 			"DELETE FROM customer WHERE id = :id",
 			array(":id"=>$id)
 			);
