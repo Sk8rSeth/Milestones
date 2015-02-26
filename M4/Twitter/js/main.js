@@ -24,8 +24,7 @@ $(document).ready(function() {
  	var makeCompose = function() {
 		var source = $('#template-compose').html();
 		var template = Handlebars.compile(source);
-		return template({
-		});
+		return template();
 	}
 	var makeTweet = function(message) {
 		var source = $('#template-tweet').html();
@@ -40,7 +39,7 @@ $(document).ready(function() {
 	//====================
 	//COMPOSE NEW TWEET
 	//===================
-	$(document).find('header').on('click', 'button', function(event){
+	$('header form').on('submit', function(event){
 		event.preventDefault();
 		var message = $('form textarea').val();
 		if(message.length > 0){
@@ -54,8 +53,7 @@ $(document).ready(function() {
 	//=================
 	//COMPOSE REPLY
 	//=================
-	$(document).find('.tweets').on('click', 'button', function(event){
-		console.log('click');
+	$('.tweets').on('submit', 'form', function(event){
 		event.preventDefault();
 		var message = $(this).parents('.compose').find('textarea').val();
 		if(message.length > 0){
