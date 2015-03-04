@@ -11,6 +11,7 @@
 		 <td>{{$row->price * $row->quantity}}</td>
 		 <td><a href="/invoices/delete/{{$row->invoice_id}},{{$row->id}}">Delete</a></td></tr> 
 	@endforeach
+	<tr>
 </table>
 
 <form action="/invoices/add/{{$invoice_id}}" method="POST">

@@ -19,7 +19,7 @@ Route::get('/invoices/all', 'invoiceController@all');
 Route::get('/invoices/details/{invoice_id}', 'invoiceController@viewDetails');
 Route::get('/invoices/addNew/{id}', 'invoiceController@addNew');
 Route::get('/invoices/delete/{id},{invoice_id}', 'invoiceController@delete');
-Route::post('/invoices/add/{invoice_id}', 'invoiceController@add');
+Route::post('/invoices/add/{invoice_id}', 'invoiceController@addItem');
 
 
 Route::controllers([

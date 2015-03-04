@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 use DB;
 use Request;
+use App\Models\itemModel;
 
 class invoiceController extends Controller {
 
@@ -30,7 +31,7 @@ class invoiceController extends Controller {
 // ===================================================================================
 //====================== Add New Invoice ==================================
 // ===================================================================================
-	
+
 	public function addNew($id) {
 		$sql_values = [':customer_id'=>$id];
 		DB::insert(
@@ -47,7 +48,7 @@ class invoiceController extends Controller {
 //===================== Add ==================================
 // ===================================================================================
 
-	public function add($invoice_id) {
+	public function addItem($invoice_id) {
 		$quantity = Request::input('quantity');
 		$item_id = Request::input('item_id');
 

@@ -1,0 +1,100 @@
+nav {
+	background-color: rgba(20,20,20,0);
+	text-align: center;
+	height: 100px;
+	position: relative;
+}
+
+.logo{
+	position: absolute;
+	left: 10px;
+	top: 30px;
+	font-size: 36pt;
+	background-color: #777;
+}
+
+.options  {
+	text-align: center;
+	padding-top: 30px;
+	background-color: rgba(0,0,0,0,0);
+	height: 100px;
+	width: 200px;
+	display: inline-block;
+	text-align: center;
+}
+
+.options:hover {
+	background-color: rgba(255,255,255,.1);
+}
+
+.options div:first-child {
+	border-bottom: 1px solid #bbb;
+	margin: 5px;
+}
+
+.user-options {
+	font-size: 26pt;
+	background-color: #777;
+	position: absolute;
+	right: 20px;
+	top: 30px;
+}
+
+.photo {
+	height: 600px;
+	background-image: url('SuppHDR.jpg');
+	background-size: cover;
+}
+
+.featured {
+	background-color: purple;
+}
+
+.featured span {
+	margin: 0 auto;
+	background-color: magenta;
+	height: 150px;
+	width: 300px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: center;
+}
+
+.focus {
+	transform: translatey(-100px);
+
+}
+
+main > div {
+	text-align: center;
+}
+
+.tagline {
+	font-size: 36pt;
+}
+
+.search {
+
+}
+
+.search input[type=text] {
+	border: 1px solid #eee;
+	border-radius: 20px;
+    height: 30px;
+    width: 500px;
+    text-align: center;
+}
+
+.browse-section {
+	height: 300px;
+	background-color: #ddd;
+}
+
+footer {
+	height: 200px;
+	text-align: center;	
+}
+
+.social-logos {
+	float: right;
+}
